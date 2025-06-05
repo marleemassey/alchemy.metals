@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "python3 -m http.server 8000"
+  },
+  "name": "alchemy-metals-landing-page",
+  "version": "1.0.0",
+  "description": "A beginner-friendly landing page for Alchemy Metals.",
+  "author": "",
+  "license": "MIT"
+}

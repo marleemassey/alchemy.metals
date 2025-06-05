@@ -73,11 +73,21 @@
         text-shadow: 0 2px 8px #000, 0 0 2px #f21f7f;
         transform: scale(1.04);
       }
+      /* --- BREAKPOINT: HERO HEADING --- */
       .hero h1 {
+        /* Make pink outline more visible */
         font-size: 3.5rem;
         font-weight: 900;
         margin-bottom: 1.2rem;
         text-transform: uppercase;
+        color: #fff;
+        text-shadow:
+          0 2px 8px #000,
+          2px 2px 0 #000,
+          -2px -2px 0 #000,
+          0 0 8px #f21f7f,
+          0 0 4px #f21f7f;
+        -webkit-text-stroke: 2px #f21f7f;
       }
       .info-section h2 {
         font-size: 2.2rem;
@@ -98,7 +108,7 @@
         font-weight: 900;
         text-transform: uppercase;
       }
-      /* Responsive tweaks */
+      /* --- BREAKPOINT: RESPONSIVE --- */
       @media (max-width: 900px) {
         .record-overlay {
           width: 350px;
@@ -110,6 +120,143 @@
         .logo {
           font-size: 1.5rem;
         }
+      }
+      /* --- BREAKPOINT: SECTIONS --- */
+      .inventory-section {
+        background: #181818;
+        color: #fff;
+        margin: 3rem auto;
+        max-width: 1100px;
+        border-radius: 24px;
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .inventory-section h2 {
+        font-size: 2.2rem;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        color: #fff;
+        text-shadow:
+          0 2px 8px #000,
+          0 0 8px #f21f7f;
+        -webkit-text-stroke: 1.5px #f21f7f;
+      }
+      .inventory-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+      .inventory-item {
+        background: #222;
+        border-radius: 16px;
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 2px 12px #000a;
+        transition: transform 0.2s;
+      }
+      .inventory-item:hover {
+        transform: scale(1.04) rotate(-1deg);
+        box-shadow: 0 4px 24px #f21f7f44;
+      }
+      .inventory-item img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        border: 2px solid #f21f7f;
+      }
+      .inventory-item h3 {
+        margin: 0.5rem 0 0.2rem 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 2px 8px #000, 0 0 2px #f21f7f;
+        -webkit-text-stroke: 0.5px #f21f7f;
+      }
+      .inventory-item p {
+        margin: 0 0 0.5rem 0;
+        color: #bbb;
+        font-size: 1rem;
+      }
+      .inventory-item .price {
+        color: #f21f7f;
+        font-weight: 900;
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+      }
+      .inventory-item button {
+        background: #f21f7f;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        padding: 0.6rem 1.5rem;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+        box-shadow: 0 2px 8px #000a;
+      }
+      .inventory-item button:hover {
+        background: #fff;
+        color: #f21f7f;
+      }
+      /* --- BREAKPOINT: MUSIC PLAYER --- */
+      .music-section {
+        background: #181818;
+        color: #fff;
+        margin: 3rem auto 2rem auto;
+        max-width: 900px;
+        border-radius: 24px;
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .music-section h2 {
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: 1.2rem;
+        text-transform: uppercase;
+        color: #fff;
+        text-shadow: 0 2px 8px #000, 0 0 8px #f21f7f;
+        -webkit-text-stroke: 1.5px #f21f7f;
+      }
+      .music-playlist {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
+      }
+      .music-track {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: #222;
+        border-radius: 12px;
+        padding: 0.7rem 1.2rem;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 2px 8px #000a;
+      }
+      .music-track audio {
+        width: 200px;
+        outline: none;
+      }
+      .music-track span {
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        text-shadow: 0 2px 8px #000, 0 0 2px #f21f7f;
+        -webkit-text-stroke: 0.5px #f21f7f;
       }
     </style>
 </head>
@@ -193,6 +340,36 @@
             </svg>
             <!-- Graffiti SVG overlay for contact -->
             <img class="contact-graffiti" src="https://svgshare.com/i/15kA.svg" alt="graffiti tag" />
+        </section>
+        <!-- Inventory section: modern online store layout -->
+        <section id="inventory" class="info-section inventory-section">
+            <h2>Our Inventory</h2>
+            <div class="inventory-grid">
+                <!-- Example inventory item -->
+                <div class="inventory-item">
+                    <img src="https://via.placeholder.com/120" alt="Product Image">
+                    <h3>Product Name</h3>
+                    <p>Short description of the product.</p>
+                    <div class="price">$99.99</div>
+                    <button>Add to Cart</button>
+                </div>
+                <!-- Repeat inventory items as needed -->
+            </div>
+        </section>
+        <!-- Music playlist section: engage visitors with music -->
+        <section id="music" class="info-section music-section">
+            <h2>Our Playlist</h2>
+            <div class="music-playlist">
+                <!-- Example music track -->
+                <div class="music-track">
+                    <audio controls>
+                        <source src="https://www.example.com/track1.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <span>Track Title - Artist Name</span>
+                </div>
+                <!-- Repeat music tracks as needed -->
+            </div>
         </section>
     </main>
     <footer>

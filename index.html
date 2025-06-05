@@ -6,20 +6,72 @@
     <title>Welcome to Alchemy Metals</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preload" href="fonts/DreamAvenue.woff2" as="font" type="font/woff2" crossorigin>
+    <!--
+      Custom graffiti font for logo and headings
+      Permanent Marker for nav/buttons
+      Remove inline style from hero section for better control
+      Add graffiti SVG overlays and more raw, layered, asymmetric layout
+    -->
     <style>
-      /* SVG background for hero section */
-      .hero-bg {
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-      }
-      .hero-content {
+      /* Remove default border radius and add rough edge effect */
+      .hero, .info-section {
+        border-radius: 0 0 60px 10px/0 0 30px 60px;
+        box-shadow: 0 8px 32px #000a, 0 0 0 8px #1e88e5 inset;
+        border: none;
         position: relative;
-        z-index: 1;
+      }
+      /* Graffiti overlay for hero */
+      .graffiti-tag {
+        position: absolute;
+        left: 2vw;
+        top: 2vw;
+        width: 120px;
+        height: 60px;
+        z-index: 2;
+        opacity: 0.7;
+        pointer-events: none;
+      }
+      /* Asymmetric layout for about/features */
+      .info-section {
+        flex-direction: row-reverse;
+        gap: 3vw;
+        align-items: flex-end;
+        border-left: 0;
+        border-right: 0;
+        box-shadow: 0 2px 16px #ffd60033, 0 0 0 8px #f21f7f inset;
+      }
+      .info-section img {
+        transform: rotate(-3deg) scale(1.05);
+        box-shadow: 0 8px 32px #000a, 0 0 0 6px #ffd600 inset;
+      }
+      /* Feature icon: more raw, hand-drawn look */
+      .feature-icon {
+        filter: grayscale(1) contrast(1.5) brightness(0.8);
+        transform: rotate(7deg) scale(1.1);
+      }
+      /* Contact graffiti overlay */
+      .contact-graffiti {
+        position: absolute;
+        right: 2vw;
+        bottom: 2vw;
+        width: 90px;
+        height: 50px;
+        z-index: 2;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      /* Responsive tweaks for raw layout */
+      @media (max-width: 900px) {
+        .info-section {
+          flex-direction: column-reverse;
+          align-items: stretch;
+          gap: 1.5rem;
+        }
+        .info-section img {
+          margin: 0 auto;
+          width: 90vw;
+          max-width: 320px;
+        }
       }
     </style>
 </head>
@@ -36,6 +88,8 @@
     </header>
     <main>
         <section class="hero" style="position:relative; overflow:hidden; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+            <!-- Graffiti SVG overlay for hero -->
+            <img class="graffiti-tag" src="https://svgshare.com/i/15kA.svg" alt="graffiti tag" />
             <div class="hero-bg">
               <svg width="100%" height="100%" viewBox="0 0 1440 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <defs>
@@ -58,6 +112,7 @@
               <a href="#about" class="cta-btn">Get Started</a>
             </div>
         </section>
+        <!-- About section: asymmetric, raw layout -->
         <section id="about" class="info-section" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
             <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Metalwork" style="width: 320px; border-radius: 18px; box-shadow: 0 4px 24px #28292922; flex-shrink:0;">
             <div>
@@ -65,6 +120,7 @@
               <p>Alchemy Metals is a beginner-friendly platform to explore the fascinating world of metals, their properties, and uses.</p>
             </div>
         </section>
+        <!-- Features section: graffiti icon, hand-drawn look -->
         <section id="features" class="info-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
             <div style="flex:1; min-width:220px;">
               <h2>Features</h2>
@@ -75,20 +131,31 @@
               </ul>
             </div>
             <div style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center;">
-              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="60" cy="60" r="54" fill="#f21f7f" fill-opacity="0.15" stroke="#f21f7f" stroke-width="4"/>
-                <rect x="35" y="35" width="50" height="50" rx="12" fill="#e9d9eb" stroke="#737b6f" stroke-width="3"/>
-                <circle cx="60" cy="60" r="16" fill="#737b6f" stroke="#282929" stroke-width="2"/>
+              <svg class="feature-icon" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#rough)">
+                  <circle cx="60" cy="60" r="54" fill="#ffd600" fill-opacity="0.13" stroke="#f21f7f" stroke-width="5"/>
+                  <rect x="35" y="35" width="50" height="50" rx="12" fill="#232323" stroke="#1e88e5" stroke-width="4"/>
+                  <circle cx="60" cy="60" r="16" fill="#1e88e5" stroke="#ffd600" stroke-width="3"/>
+                </g>
+                <defs>
+                  <filter id="rough">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" result="turb"/>
+                    <feDisplacementMap in2="turb" in="SourceGraphic" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+                  </filter>
+                </defs>
               </svg>
             </div>
         </section>
+        <!-- Contact section: graffiti overlay -->
         <section id="contact" class="info-section" style="text-align:center;">
             <h2>Contact</h2>
             <p>Have questions? <a href="mailto:info@alchemymetals.com">Email us</a> and we’ll get back to you soon!</p>
             <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top:1rem;">
-              <rect x="10" y="20" width="60" height="40" rx="8" fill="#e9d9eb" stroke="#f21f7f" stroke-width="3"/>
-              <polyline points="10,20 40,50 70,20" fill="none" stroke="#737b6f" stroke-width="3"/>
+              <rect x="10" y="20" width="60" height="40" rx="8" fill="#232323" stroke="#f21f7f" stroke-width="3"/>
+              <polyline points="10,20 40,50 70,20" fill="none" stroke="#1e88e5" stroke-width="3"/>
             </svg>
+            <!-- Graffiti SVG overlay for contact -->
+            <img class="contact-graffiti" src="https://svgshare.com/i/15kA.svg" alt="graffiti tag" />
         </section>
     </main>
     <footer>

@@ -18,7 +18,7 @@
 body {
     margin: 0;
     font-family: 'Inter', Arial, sans-serif;
-    background: var(--black);
+    background: linear-gradient(135deg, #181a1b 0%, #23272a 100%); /* subtle light overlay */
     color: var(--white);
     line-height: 1.7;
     min-height: 100vh;
@@ -250,4 +250,28 @@ footer {
     font-weight: 700;
     filter: none;
     border: none;
+}
+
+/* Button focus for accessibility */
+button:focus, .cta-btn:focus, .btn:focus, .btn-hover:focus, input[type="submit"]:focus, input[type="button"]:focus {
+    box-shadow: 0 0 0 2px var(--hot-pink), 0 2px 12px #000a;
+}
+
+/* Make all anchor buttons and nav links visually clickable */
+.nav-links a, a.cta-btn, a.btn, a.btn-hover {
+    cursor: pointer;
+}
+.cta-btn, button, .btn, .btn-hover, input[type="submit"], input[type="button"] {
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+    outline: none;
+    border: none;
+}
+.cta-btn:active, button:active, .btn:active, .btn-hover:active, input[type="submit"]:active, input[type="button"]:active {
+    transform: scale(0.97);
+}
+
+/* Add a subtle light overlay to all main sections */
+.hero, .info-section, footer, header, nav {
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%), var(--section-bg);
 }

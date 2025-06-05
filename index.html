@@ -3,359 +3,837 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Alchemy Metals</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preload" href="fonts/DreamAvenue.woff2" as="font" type="font/woff2" crossorigin>
-    <!--
-      Use Inter for a clean, modern look
-      Add animated SVG overlay (record style) to hero
-      Remove borders from sections
-      Font color: white, with crisp black shadow and light dark pink outline
-    -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap" rel="stylesheet">
+    <title>ROGUE | Street Style Jewelry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      /* Remove animated record overlay and all borders/radius from hero and sections */
-      .hero, .info-section, .inventory-section, .music-section {
-        border: none !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        background: #111;
-        position: relative;
-      }
-      /* Remove overlay SVG from hero */
-      .record-overlay { display: none !important; }
-      /* Font style: white, crisp black shadow, light dark pink outline */
-      .logo, .hero h1, .info-section h2, .cta-btn, .nav-links a {
-        font-family: 'Inter', Arial, sans-serif !important;
-        color: #fff !important;
-        text-shadow:
-          0 2px 8px #000,
-          2px 2px 0 #000,
-          -2px -2px 0 #000,
-          0 0 8px #f21f7f,
-          0 0 4px #f21f7f;
-        -webkit-text-stroke: 2px #f21f7f;
-        letter-spacing: 2px;
-      }
-      .cta-btn {
-        background: #f21f7f;
-        color: #fff !important;
-        border-radius: 30px;
-        font-weight: 900;
-        font-size: 1.2rem;
-        box-shadow: 0 2px 12px #000a;
-        outline: none;
-        border: none;
-        padding: 1rem 2.5rem;
-        transition: background 0.2s, color 0.2s, transform 0.2s;
-      }
-      .cta-btn:hover {
-        background: #fff;
-        color: #f21f7f !important;
-        text-shadow: 0 2px 8px #000, 0 0 2px #f21f7f;
-        transform: scale(1.04);
-      }
-      /* --- BREAKPOINT: HERO HEADING --- */
-      .hero h1 {
-        /* Make pink outline more visible */
-        font-size: 3.5rem;
-        font-weight: 900;
-        margin-bottom: 1.2rem;
-        text-transform: uppercase;
-        color: #fff;
-        text-shadow:
-          0 2px 8px #000,
-          2px 2px 0 #000,
-          -2px -2px 0 #000,
-          0 0 8px #f21f7f,
-          0 0 4px #f21f7f;
-        -webkit-text-stroke: 2px #f21f7f;
-      }
-      .info-section h2 {
-        font-size: 2.2rem;
-        font-weight: 900;
-        margin-top: 0;
-        text-transform: uppercase;
-      }
-      .nav-links a {
-        font-size: 1.1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        background: none;
-        border: none;
-        outline: none;
-      }
-      .logo {
-        font-size: 2.5rem;
-        font-weight: 900;
-        text-transform: uppercase;
-      }
-      /* --- BREAKPOINT: RESPONSIVE --- */
-      @media (max-width: 900px) {
-        .record-overlay {
-          width: 350px;
-          height: 350px;
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Bebas+Neue&display=swap');
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #0f0f0f;
+            color: #f5f5f5;
         }
-        .hero h1 {
-          font-size: 2.1rem;
+        
+        .bebas {
+            font-family: 'Bebas Neue', sans-serif;
         }
-        .logo {
-          font-size: 1.5rem;
+        
+        .nav-link {
+            position: relative;
+            overflow: hidden;
         }
-      }
-      /* --- BREAKPOINT: SECTIONS --- */
-      .inventory-section {
-        background: #181818;
-        color: #fff;
-        margin: 3rem auto;
-        max-width: 1100px;
-        border-radius: 24px;
-        padding: 2.5rem 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .inventory-section h2 {
-        font-size: 2.2rem;
-        font-weight: 900;
-        margin-bottom: 1.5rem;
-        text-transform: uppercase;
-        color: #fff;
-        text-shadow:
-          0 2px 8px #000,
-          0 0 8px #f21f7f;
-        -webkit-text-stroke: 1.5px #f21f7f;
-      }
-      .inventory-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 2rem;
-        width: 100%;
-        margin-bottom: 2rem;
-      }
-      .inventory-item {
-        background: #222;
-        border-radius: 16px;
-        padding: 1.2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0 2px 12px #000a;
-        transition: transform 0.2s;
-      }
-      .inventory-item:hover {
-        transform: scale(1.04) rotate(-1deg);
-        box-shadow: 0 4px 24px #f21f7f44;
-      }
-      .inventory-item img {
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 12px;
-        margin-bottom: 1rem;
-        border: 2px solid #f21f7f;
-      }
-      .inventory-item h3 {
-        margin: 0.5rem 0 0.2rem 0;
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #fff;
-        text-shadow: 0 2px 8px #000, 0 0 2px #f21f7f;
-        -webkit-text-stroke: 0.5px #f21f7f;
-      }
-      .inventory-item p {
-        margin: 0 0 0.5rem 0;
-        color: #bbb;
-        font-size: 1rem;
-      }
-      .inventory-item .price {
-        color: #f21f7f;
-        font-weight: 900;
-        font-size: 1.1rem;
-        margin-bottom: 0.7rem;
-      }
-      .inventory-item button {
-        background: #f21f7f;
-        color: #fff;
-        border: none;
-        border-radius: 20px;
-        padding: 0.6rem 1.5rem;
-        font-weight: 700;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.2s, color 0.2s;
-        box-shadow: 0 2px 8px #000a;
-      }
-      .inventory-item button:hover {
-        background: #fff;
-        color: #f21f7f;
-      }
-      /* --- BREAKPOINT: MUSIC PLAYER --- */
-      .music-section {
-        background: #181818;
-        color: #fff;
-        margin: 3rem auto 2rem auto;
-        max-width: 900px;
-        border-radius: 24px;
-        padding: 2.5rem 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .music-section h2 {
-        font-size: 2rem;
-        font-weight: 900;
-        margin-bottom: 1.2rem;
-        text-transform: uppercase;
-        color: #fff;
-        text-shadow: 0 2px 8px #000, 0 0 8px #f21f7f;
-        -webkit-text-stroke: 1.5px #f21f7f;
-      }
-      .music-playlist {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 1.2rem;
-        align-items: center;
-      }
-      .music-track {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        background: #222;
-        border-radius: 12px;
-        padding: 0.7rem 1.2rem;
-        width: 100%;
-        max-width: 500px;
-        box-shadow: 0 2px 8px #000a;
-      }
-      .music-track audio {
-        width: 200px;
-        outline: none;
-      }
-      .music-track span {
-        color: #fff;
-        font-weight: 700;
-        font-size: 1rem;
-        text-shadow: 0 2px 8px #000, 0 0 2px #f21f7f;
-        -webkit-text-stroke: 0.5px #f21f7f;
-      }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #f5f5f5;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hamburger-menu {
+            transition: all 0.3s ease;
+        }
+        
+        .menu-overlay {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .btn-hover {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+        
+        .btn-hover:hover::before {
+            left: 100%;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0f0f0f;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* Glitch effect */
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 #ff00ff;
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: 1px 0 #00ffff;
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim-1 {
+            0% {
+                clip-path: inset(80% 0 0 0);
+            }
+            20% {
+                clip-path: inset(20% 0 60% 0);
+            }
+            40% {
+                clip-path: inset(40% 0 40% 0);
+            }
+            60% {
+                clip-path: inset(60% 0 20% 0);
+            }
+            80% {
+                clip-path: inset(0 0 80% 0);
+            }
+            100% {
+                clip-path: inset(30% 0 50% 0);
+            }
+        }
+        
+        @keyframes glitch-anim-2 {
+            0% {
+                clip-path: inset(20% 0 60% 0);
+            }
+            20% {
+                clip-path: inset(60% 0 20% 0);
+            }
+            40% {
+                clip-path: inset(0 0 80% 0);
+            }
+            60% {
+                clip-path: inset(80% 0 0 0);
+            }
+            80% {
+                clip-path: inset(40% 0 40% 0);
+            }
+            100% {
+                clip-path: inset(50% 0 30% 0);
+            }
+        }
     </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">Alchemy Metals</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<body class="min-h-screen">
+    <!-- Header with Hamburger Menu -->
+    <header class="fixed top-0 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md z-50 px-4 py-3 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center">
+            <h1 class="bebas text-3xl tracking-wider">
+                <span class="glitch text-white" data-text="ROGUE">ROGUE</span>
+            </h1>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="#" class="nav-link text-white hover:text-gray-300 transition-colors">HOME</a>
+            <a href="#shop" class="nav-link text-white hover:text-gray-300 transition-colors">SHOP</a>
+            <a href="#collections" class="nav-link text-white hover:text-gray-300 transition-colors">COLLECTIONS</a>
+            <a href="#about" class="nav-link text-white hover:text-gray-300 transition-colors">ABOUT</a>
         </nav>
+        
+        <div class="flex items-center space-x-4">
+            <button class="text-white hover:text-gray-300 transition-colors">
+                <i class="fas fa-search text-xl"></i>
+            </button>
+            <button class="text-white hover:text-gray-300 transition-colors">
+                <i class="fas fa-shopping-bag text-xl"></i>
+                <span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
+            </button>
+            
+            <!-- Hamburger Menu Button (Mobile) -->
+            <button id="hamburger-btn" class="md:hidden text-white hover:text-gray-300 transition-colors">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
     </header>
-    <main>
-        <section class="hero" style="position:relative; overflow:hidden; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-            <!-- Animated record SVG overlay for hero -->
-            <div class="record-overlay">
-              <svg width="100%" height="100%" viewBox="0 0 1440 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#f21f7f"/>
-                    <stop offset="100%" stop-color="#e9d9eb"/>
-                  </linearGradient>
-                  <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#737b6f"/>
-                    <stop offset="100%" stop-color="#282929"/>
-                  </linearGradient>
-                </defs>
-                <path d="M0,100 Q360,200 720,100 T1440,100 V500 H0 Z" fill="url(#bg1)" opacity="0.7"/>
-                <path d="M0,200 Q360,350 720,200 T1440,200 V500 H0 Z" fill="url(#bg2)" opacity="0.5"/>
-              </svg>
-            </div>
-            <div class="hero-content">
-              <h1>Welcome to Alchemy Metals</h1>
-              <p>Your journey into the world of metals starts here. Discover, learn, and transform your knowledge!</p>
-              <a href="#about" class="cta-btn">Get Started</a>
-            </div>
-        </section>
-        <!-- About section: asymmetric, raw layout -->
-        <section id="about" class="info-section" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Metalwork" style="width: 320px; border-radius: 18px; box-shadow: 0 4px 24px #28292922; flex-shrink:0;">
-            <div>
-              <h2>About Us</h2>
-              <p>Alchemy Metals is a beginner-friendly platform to explore the fascinating world of metals, their properties, and uses.</p>
-            </div>
-        </section>
-        <!-- Features section: graffiti icon, hand-drawn look -->
-        <section id="features" class="info-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
-            <div style="flex:1; min-width:220px;">
-              <h2>Features</h2>
-              <ul>
-                  <li>Easy-to-understand guides</li>
-                  <li>Interactive learning modules</li>
-                  <li>Community support</li>
-              </ul>
-            </div>
-            <div style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center;">
-              <svg class="feature-icon" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g filter="url(#rough)">
-                  <circle cx="60" cy="60" r="54" fill="#ffd600" fill-opacity="0.13" stroke="#f21f7f" stroke-width="5"/>
-                  <rect x="35" y="35" width="50" height="50" rx="12" fill="#232323" stroke="#1e88e5" stroke-width="4"/>
-                  <circle cx="60" cy="60" r="16" fill="#1e88e5" stroke="#ffd600" stroke-width="3"/>
-                </g>
-                <defs>
-                  <filter id="rough">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" result="turb"/>
-                    <feDisplacementMap in2="turb" in="SourceGraphic" scale="3" xChannelSelector="R" yChannelSelector="G"/>
-                  </filter>
-                </defs>
-              </svg>
-            </div>
-        </section>
-        <!-- Contact section: graffiti overlay -->
-        <section id="contact" class="info-section" style="text-align:center;">
-            <h2>Contact</h2>
-            <p>Have questions? <a href="mailto:info@alchemymetals.com">Email us</a> and we’ll get back to you soon!</p>
-            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top:1rem;">
-              <rect x="10" y="20" width="60" height="40" rx="8" fill="#232323" stroke="#f21f7f" stroke-width="3"/>
-              <polyline points="10,20 40,50 70,20" fill="none" stroke="#1e88e5" stroke-width="3"/>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center menu-overlay opacity-0 invisible">
+        <button id="close-menu" class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+        
+        <nav class="flex flex-col items-center space-y-8">
+            <a href="#" class="text-white text-2xl hover:text-gray-300 transition-colors bebas tracking-wider">HOME</a>
+            <a href="#shop" class="text-white text-2xl hover:text-gray-300 transition-colors bebas tracking-wider">SHOP</a>
+            <a href="#collections" class="text-white text-2xl hover:text-gray-300 transition-colors bebas tracking-wider">COLLECTIONS</a>
+            <a href="#about" class="text-white text-2xl hover:text-gray-300 transition-colors bebas tracking-wider">ABOUT</a>
+        </nav>
+        
+        <div class="mt-12 flex space-x-6">
+            <a href="#" class="text-white hover:text-gray-300 transition-colors">
+                <i class="fab fa-instagram text-2xl"></i>
+            </a>
+            <a href="#" class="text-white hover:text-gray-300 transition-colors">
+                <i class="fab fa-tiktok text-2xl"></i>
+            </a>
+            <a href="#" class="text-white hover:text-gray-300 transition-colors">
+                <i class="fab fa-twitter text-2xl"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden pt-16">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-80"></div>
+            <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <filter id="noise">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+                    <feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0"/>
+                </filter>
+                <rect width="100%" height="100%" filter="url(#noise)" opacity="0.05"/>
             </svg>
-            <!-- Graffiti SVG overlay for contact -->
-            <img class="contact-graffiti" src="https://svgshare.com/i/15kA.svg" alt="graffiti tag" />
-        </section>
-        <!-- Inventory section: modern online store layout -->
-        <section id="inventory" class="info-section inventory-section">
-            <h2>Our Inventory</h2>
-            <div class="inventory-grid">
-                <!-- Example inventory item -->
-                <div class="inventory-item">
-                    <img src="https://via.placeholder.com/120" alt="Product Image">
-                    <h3>Product Name</h3>
-                    <p>Short description of the product.</p>
-                    <div class="price">$99.99</div>
-                    <button>Add to Cart</button>
-                </div>
-                <!-- Repeat inventory items as needed -->
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="bebas text-5xl md:text-7xl lg:text-8xl mb-6 tracking-wider text-white">
+                <span class="inline-block transform -rotate-2 text-red-600">BREAK</span> 
+                THE <span class="inline-block transform rotate-2 text-red-600">RULES</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-300">
+                Edgy jewelry for those who dare to stand out. Crafted for the streets, designed for rebels.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#shop" class="btn-hover bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-sm bebas text-xl tracking-wider transition-colors">
+                    SHOP NOW
+                </a>
+                <a href="#collections" class="btn-hover bg-transparent border border-white text-white px-8 py-3 rounded-sm bebas text-xl tracking-wider hover:bg-white hover:bg-opacity-10 transition-colors">
+                    VIEW COLLECTIONS
+                </a>
             </div>
-        </section>
-        <!-- Music playlist section: engage visitors with music -->
-        <section id="music" class="info-section music-section">
-            <h2>Our Playlist</h2>
-            <div class="music-playlist">
-                <!-- Example music track -->
-                <div class="music-track">
-                    <audio controls>
-                        <source src="https://www.example.com/track1.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <span>Track Title - Artist Name</span>
+        </div>
+    </section>
+    
+    <!-- Featured Categories -->
+    <section class="py-16 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="bebas text-3xl md:text-4xl mb-12 text-center text-white">CHOOSE YOUR <span class="text-red-600">STYLE</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="relative overflow-hidden group cursor-pointer">
+                    <div class="aspect-w-1 aspect-h-1 bg-gray-900">
+                        <svg class="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#1a1a1a"/>
+                            <circle cx="100" cy="100" r="50" fill="#333"/>
+                            <path d="M70,80 L130,80 L130,120 L70,120 Z" fill="#555"/>
+                            <circle cx="100" cy="100" r="20" fill="#777"/>
+                            <text x="100" y="105" text-anchor="middle" fill="white" font-family="'Bebas Neue', sans-serif" font-size="12">CHAINS</text>
+                        </svg>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="bebas text-2xl text-white mb-2">CHAINS</h3>
+                        <div class="w-12 h-1 bg-red-600 mb-4 transform origin-left transition-all duration-300 group-hover:w-24"></div>
+                        <a href="#" class="inline-block text-white hover:text-red-600 transition-colors">
+                            EXPLORE <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
                 </div>
-                <!-- Repeat music tracks as needed -->
+                
+                <div class="relative overflow-hidden group cursor-pointer">
+                    <div class="aspect-w-1 aspect-h-1 bg-gray-900">
+                        <svg class="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#1a1a1a"/>
+                            <circle cx="100" cy="100" r="60" fill="#333" stroke="#555" stroke-width="2"/>
+                            <circle cx="100" cy="100" r="40" fill="#1a1a1a" stroke="#555" stroke-width="1"/>
+                            <text x="100" y="105" text-anchor="middle" fill="white" font-family="'Bebas Neue', sans-serif" font-size="12">RINGS</text>
+                        </svg>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="bebas text-2xl text-white mb-2">RINGS</h3>
+                        <div class="w-12 h-1 bg-red-600 mb-4 transform origin-left transition-all duration-300 group-hover:w-24"></div>
+                        <a href="#" class="inline-block text-white hover:text-red-600 transition-colors">
+                            EXPLORE <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative overflow-hidden group cursor-pointer">
+                    <div class="aspect-w-1 aspect-h-1 bg-gray-900">
+                        <svg class="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#1a1a1a"/>
+                            <circle cx="100" cy="70" r="20" fill="#333"/>
+                            <rect x="95" y="90" width="10" height="40" fill="#555"/>
+                            <circle cx="100" cy="140" r="10" fill="#777"/>
+                            <text x="100" y="105" text-anchor="middle" fill="white" font-family="'Bebas Neue', sans-serif" font-size="12">PENDANTS</text>
+                        </svg>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="bebas text-2xl text-white mb-2">PENDANTS</h3>
+                        <div class="w-12 h-1 bg-red-600 mb-4 transform origin-left transition-all duration-300 group-hover:w-24"></div>
+                        <a href="#" class="inline-block text-white hover:text-red-600 transition-colors">
+                            EXPLORE <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Alchemy Metals. All rights reserved.</p>
+        </div>
+    </section>
+    
+    <!-- Featured Products -->
+    <section id="shop" class="py-16 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="bebas text-3xl md:text-4xl text-white">TRENDING <span class="text-red-600">NOW</span></h2>
+                <div class="hidden md:flex space-x-2">
+                    <button id="prev-product" class="w-10 h-10 border border-gray-700 flex items-center justify-center text-white hover:bg-red-600 hover:border-red-600 transition-colors">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-product" class="w-10 h-10 border border-gray-700 flex items-center justify-center text-white hover:bg-red-600 hover:border-red-600 transition-colors">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-container">
+                <!-- Product 1 -->
+                <div class="product-card bg-gray-800 rounded-sm overflow-hidden">
+                    <div class="relative">
+                        <div class="aspect-w-1 aspect-h-1 bg-gray-900">
+                            <svg class="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#1a1a1a"/>
+                                <path d="M100,50 L120,80 L150,90 L120,120 L130,150 L100,135 L70,150 L80,120 L50,90 L80,80 Z" fill="#777" stroke="#999" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-600 text-white text-xs px-2 py-1">NEW</span>
+                        </div>
+                        <div class="absolute top-4 right-4 flex flex-col space-y-2">
+                            <button class="w-8 h-8 bg-black bg-opacity-50 hover:bg-red-600 flex items-center justify-center rounded-full transition-colors">
+                                <i class="far fa-heart text-white"></i>
+                            </button>
+                            <button class="w-8 h-8 bg-black bg-opacity-50 hover:bg-red-600 flex items-center justify-center rounded-full transition-colors">
+                                <i class="fas fa-expand-alt text-white text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-white text-lg font-medium mb-1">Spike Star Pendant</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star-half-alt text-xs"></i>
+                            </div>
+                            <span class="text-gray-400 text-xs ml-2">(42)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-white text-lg font-bold">$49.99</span>
+                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-sm text-sm transition-colors">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-gray-800 rounded-sm overflow-hidden">
+                    <div class="relative">
+                        <div class="aspect-w-1 aspect-h-1 bg-gray-900">
+                            <svg class="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#1a1a1a"/>
+                                <circle cx="100" cy="100" r="50" fill="none" stroke="#777" stroke-width="8"/>
+                                <circle cx="100" cy="100" r="30" fill="none" stroke="#999" stroke-width="4"/>
+                            </svg>
+                        </div>
+                        <div class="absolute top-4 right-4 flex flex-col space-y-2">
+                            <button class="w-8 h-8 bg-black bg-opacity-50 hover:bg-red-600 flex items-center justify-center rounded-full transition-colors">
+                                <i class="far fa-heart text-white"></i>
+                            </button>
+                            <button class="w-8 h-8 bg-black bg-opacity-50 hover:bg-red-600 flex items-center justify-center rounded-full transition-colors">
+                                <i class="fas fa-expand-alt text-white text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-white text-lg font-medium mb-1">Double Hoop Earrings</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="far fa-star text-xs"></i>
+                            </div>
+                            <span class="text-gray-400 text-xs ml-2">(28)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-white text-lg font-bold">$35.99</span>
+                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-sm text-sm transition-colors">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-gray-800 rounded-sm overflow-hidden">
+                    <div class="relative">
+                        <div class="aspect-w-1 aspect-h-1 bg-gray-900">
+                            <svg class="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#1a1a1a"/>
+                                <rect x="60" y="80" width="80" height="40" fill="#777" stroke="#999" stroke-width="2"/>
+                                <circle cx="100" cy="100" r="10" fill="#555"/>
+                            </svg>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-gray-900 text-white text-xs px-2 py-1">SALE</span>
+                        </div>
+                        <div class="absolute top-4 right-4 flex flex-col space-y-2">
+                            <button class="w-8 h-8 bg-black bg-opacity-50 hover:bg-red-600 flex items-center justify-center rounded-full transition-colors">
+                                <i class="far fa-heart text-white"></i>
+                            </button>
+                            <button class="w-8 h-8 bg-black bg-opacity-50 hover:bg-red-600 flex items-center justify-center rounded-full transition-colors">
+                                <i class="fas fa-expand-alt text-white text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-white text-lg font-medium mb-1">Industrial Bracelet</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                            </div>
+                            <span class="text-gray-400 text-xs ml-2">(56)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-white text-lg font-bold">$42.99</span>
+                                <span class="text-gray-400 text-sm line-through ml-2">$59.99</span>
+                            </div>
+                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-sm text-sm transition-colors">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-gray-800 rounded-sm overflow-hidden">
+                    <div class="relative">
+                        <div class="aspect-w-1 aspect-h-1 bg-gray-900">
+                            <svg class="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#1a1a1a"/>
+                                <circle cx="100" cy="100" r="40" fill="none" stroke="#777" stroke-width="5"/>
+                                <path d="M100,60 L100,140" stroke="#999" stroke-width="5"/>
+                                <path d="M70,100 L130,100" stroke="#999" stroke-width="5"/>
+                            </svg>
+                        </div>
+                        <div class="absolute top-4 right-4 flex flex-col space-y-2">
+                            <button class="w-8 h-8 bg-black bg-opacity-50 hover:bg-red-600 flex items-center justify-center rounded-full transition-colors">
+                                <i class="far fa-heart text-white"></i>
+                            </button>
+                            <button class="w-8 h-8 bg-black bg-opacity-50 hover:bg-red-600 flex items-center justify-center rounded-full transition-colors">
+                                <i class="fas fa-expand-alt text-white text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-white text-lg font-medium mb-1">Inverted Cross Ring</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star-half-alt text-xs"></i>
+                                <i class="far fa-star text-xs"></i>
+                            </div>
+                            <span class="text-gray-400 text-xs ml-2">(19)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-white text-lg font-bold">$29.99</span>
+                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-sm text-sm transition-colors">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-10">
+                <a href="#" class="btn-hover border border-white text-white px-8 py-3 rounded-sm bebas text-xl tracking-wider hover:bg-white hover:bg-opacity-10 transition-colors">
+                    VIEW ALL PRODUCTS
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Collection -->
+    <section id="collections" class="py-16 bg-gray-900 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <filter id="noise2">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/>
+                    <feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.3 0"/>
+                </filter>
+                <rect width="100%" height="100%" filter="url(#noise2)" opacity="0.05"/>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="bebas text-3xl md:text-4xl text-white mb-4">THE <span class="text-red-600">UNDERGROUND</span> COLLECTION</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Inspired by urban subcultures and street art. Each piece tells a story of rebellion and self-expression.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-black p-6 rounded-sm">
+                    <div class="aspect-w-16 aspect-h-9 mb-6 bg-gray-800">
+                        <svg class="w-full h-full" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#1a1a1a"/>
+                            <circle cx="160" cy="90" r="40" fill="none" stroke="#777" stroke-width="5"/>
+                            <path d="M120,50 L200,130" stroke="#999" stroke-width="5"/>
+                            <path d="M200,50 L120,130" stroke="#999" stroke-width="5"/>
+                        </svg>
+                    </div>
+                    <h3 class="bebas text-2xl text-white mb-2">ANARCHY SERIES</h3>
+                    <p class="text-gray-400 mb-4">Bold statement pieces featuring anarchist symbols and raw, unpolished finishes.</p>
+                    <a href="#" class="inline-block text-red-600 hover:text-red-500 transition-colors">
+                        EXPLORE COLLECTION <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-black p-6 rounded-sm">
+                    <div class="aspect-w-16 aspect-h-9 mb-6 bg-gray-800">
+                        <svg class="w-full h-full" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#1a1a1a"/>
+                            <rect x="100" y="50" width="120" height="80" fill="none" stroke="#777" stroke-width="5"/>
+                            <circle cx="160" cy="90" r="30" fill="none" stroke="#999" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="bebas text-2xl text-white mb-2">CONCRETE JUNGLE</h3>
+                    <p class="text-gray-400 mb-4">Urban-inspired pieces that blend industrial elements with street style aesthetics.</p>
+                    <a href="#" class="inline-block text-red-600 hover:text-red-500 transition-colors">
+                        EXPLORE COLLECTION <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="bebas text-3xl md:text-4xl text-white mb-6">OUR <span class="text-red-600">STORY</span></h2>
+                    <p class="text-gray-400 mb-4">
+                        Born in the underground scene of urban culture, ROGUE is more than just jewelry – it's a statement. 
+                        We create pieces for those who refuse to conform, who embrace their individuality and wear it proudly.
+                    </p>
+                    <p class="text-gray-400 mb-6">
+                        Each design is crafted with attention to detail, using high-quality materials that stand the test of time, 
+                        just like the rebellious spirit they represent.
+                    </p>
+                    <a href="#" class="btn-hover inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-sm bebas text-lg tracking-wider transition-colors">
+                        LEARN MORE
+                    </a>
+                </div>
+                
+                <div class="relative">
+                    <div class="aspect-w-4 aspect-h-3 bg-gray-900 rounded-sm overflow-hidden">
+                        <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#1a1a1a"/>
+                            <rect x="50" y="50" width="300" height="200" fill="#333" stroke="#555" stroke-width="2"/>
+                            <circle cx="200" cy="150" r="50" fill="#555" stroke="#777" stroke-width="2"/>
+                            <text x="200" y="155" text-anchor="middle" fill="white" font-family="'Bebas Neue', sans-serif" font-size="16">ROGUE</text>
+                        </svg>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-red-600"></div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 border-2 border-white"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="bebas text-3xl md:text-4xl text-white mb-4">JOIN THE <span class="text-red-600">REBELLION</span></h2>
+                <p class="text-gray-400 mb-8">
+                    Subscribe to our newsletter for exclusive offers, new releases, and underground events.
+                </p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input 
+                        type="email" 
+                        placeholder="Your email address" 
+                        class="flex-1 bg-black border border-gray-800 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-red-600"
+                        required
+                    >
+                    <button type="submit" class="btn-hover bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-sm bebas text-lg tracking-wider transition-colors">
+                        SUBSCRIBE
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="bebas text-2xl text-white mb-4">ROGUE</h3>
+                    <p class="text-gray-400 mb-4">
+                        Edgy jewelry for those who dare to stand out. Crafted for the streets, designed for rebels.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-lg font-medium mb-4">SHOP</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">All Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Chains</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Rings</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pendants</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Earrings</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-lg font-medium mb-4">INFORMATION</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-lg font-medium mb-4">CONTACT</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-red-600 mt-1 mr-3"></i>
+                            <span class="text-gray-400">123 Urban St, Downtown, City</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-red-600 mt-1 mr-3"></i>
+                            <span class="text-gray-400">+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-red-600 mt-1 mr-3"></i>
+                            <span class="text-gray-400">info@roguejewelry.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    © 2023 ROGUE Jewelry. All rights reserved.
+                </p>
+                <div class="flex items-center space-x-4">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHJ4PSIzIiBmaWxsPSIjMzMzIi8+PHBhdGggZD0iTTEwLjUgMTJDMTAuNSAxMC4xNSAxMi4xNSA4LjUgMTQgOC41SDE4LjVWMTUuNUgxNEMxMi4xNSAxNS41IDEwLjUgMTMuODUgMTAuNSAxMloiIGZpbGw9IiM5OTkiLz48cGF0aCBkPSJNMTguNSA4LjVIMjNDMjQuODUgOC41IDI2LjUgMTAuMTUgMjYuNSAxMkMyNi41IDEzLjg1IDI0Ljg1IDE1LjUgMjMgMTUuNUgxOC41VjguNVoiIGZpbGw9IiM5OTkiLz48cGF0aCBkPSJNMjYuNSAxMkMyNi41IDEwLjE1IDI4LjE1IDguNSAzMCA4LjVIMzEuNVYxNS41SDMwQzI4LjE1IDE1LjUgMjYuNSAxMy44NSAyNi41IDEyWiIgZmlsbD0iIzk5OSIvPjwvc3ZnPg==" alt="Payment methods" class="h-6">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHJ4PSIzIiBmaWxsPSIjMzMzIi8+PHBhdGggZD0iTTE1IDhIMTdWMTZIMTVWOFoiIGZpbGw9IiM5OTkiLz48cGF0aCBkPSJNMjMgOEgyNVYxNkgyM1Y4WiIgZmlsbD0iIzk5OSIvPjxwYXRoIGQ9Ik0xOSA4SDIxVjE2SDE5VjhaIiBmaWxsPSIjOTk5Ii8+PHBhdGggZD0iTTExIDhIMTNWMTZIMTFWOFoiIGZpbGw9IiM5OTkiLz48cGF0aCBkPSJNMjcgOEgyOVYxNkgyN1Y4WiIgZmlsbD0iIzk5OSIvPjwvc3ZnPg==" alt="Payment methods" class="h-6">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHJ4PSIzIiBmaWxsPSIjMzMzIi8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxMiIgcj0iNSIgZmlsbD0iIzk5OSIvPjxjaXJjbGUgY3g9IjI0IiBjeT0iMTIiIHI9IjUiIGZpbGw9IiM5OTkiIG9wYWNpdHk9IjAuNyIvPjwvc3ZnPg==" alt="Payment methods" class="h-6">
+                </div>
+            </div>
+        </div>
     </footer>
+    
+    <script>
+        // Hamburger Menu Functionality
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('invisible', 'opacity-0');
+            mobileMenu.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('opacity-0');
+            setTimeout(() => {
+                mobileMenu.classList.add('invisible');
+                document.body.style.overflow = '';
+            }, 300);
+        });
+        
+        // Mobile menu links close menu when clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('opacity-0');
+                setTimeout(() => {
+                    mobileMenu.classList.add('invisible');
+                    document.body.style.overflow = '';
+                }, 300);
+            });
+        });
+        
+        // Product Carousel Functionality
+        const productsContainer = document.getElementById('products-container');
+        const prevBtn = document.getElementById('prev-product');
+        const nextBtn = document.getElementById('next-product');
+        
+        let scrollAmount = 0;
+        const scrollStep = 300;
+        
+        prevBtn.addEventListener('click', () => {
+            scrollAmount = Math.max(0, scrollAmount - scrollStep);
+            productsContainer.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            scrollAmount = Math.min(
+                productsContainer.scrollWidth - productsContainer.clientWidth,
+                scrollAmount + scrollStep
+            );
+            productsContainer.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.product-card button');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = this.closest('.product-card').querySelector('h3').textContent;
+                
+                // Create notification
+                const notification = document.createElement('div');
+                notification.className = 'fixed bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-sm z-50 transform transition-transform duration-300 translate-y-full';
+                notification.textContent = `${productName} added to cart!`;
+                document.body.appendChild(notification);
+                
+                // Show notification
+                setTimeout(() => {
+                    notification.classList.remove('translate-y-full');
+                }, 100);
+                
+                // Hide and remove notification
+                setTimeout(() => {
+                    notification.classList.add('translate-y-full');
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value;
+            
+            if (email) {
+                // Create success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'text-green-500 mt-4';
+                successMessage.textContent = 'Thank you for subscribing!';
+                
+                // Replace form with success message
+                this.innerHTML = '';
+                this.appendChild(successMessage);
+            }
+        });
+    </script>
 </body>
 </html>

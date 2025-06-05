@@ -82,5 +82,31 @@
             © 2023 ROGUE Jewelry. All rights reserved.
         </div>
     </footer>
+    <script>
+        // Continue Shopping button scrolls to #shop on index.html
+        document.querySelector('a[href="index.html#shop"]').addEventListener('click', function(e) {
+            // No special logic needed, just link
+        });
+        // Back to Home button goes to top of index.html
+        document.querySelector('a[href="index.html#"]').addEventListener('click', function(e) {
+            // No special logic needed, just link
+        });
+        // Checkout button (for demo, just alert)
+        document.querySelector('button.btn-hover.bg-red-600').addEventListener('click', function() {
+            alert('Checkout is not implemented in this demo.');
+        });
+        // Remove button removes item and simulates putting it back on index.html
+        const removeBtn = document.querySelector('#cart-items button');
+        removeBtn.addEventListener('click', function() {
+            // Remove the cart item from the page
+            const cartItem = this.closest('.flex.items-center.justify-between');
+            cartItem.remove();
+            // Optionally update subtotal
+            document.querySelector('.flex.justify-between.items-center.mt-8 span.text-white').textContent = '$0.00';
+            // Show a message and link to go back to shop
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '<div class="text-center text-gray-400 py-8">Your cart is empty.<br><a href="index.html#shop" class="text-red-600 hover:text-red-400 underline">Return to Shop</a></div>';
+        });
+    </script>
 </body>
 </html>

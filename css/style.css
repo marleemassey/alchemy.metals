@@ -1,4 +1,4 @@
-/* Street style, bold, urban, and gender-neutral look */
+/* Graffiti, bratty, bold, and crisp street style */
 @font-face {
     font-family: 'Dream Avenue';
     src: url('../fonts/DreamAvenue.woff2') format('woff2'),
@@ -7,22 +7,23 @@
     font-style: normal;
     font-display: swap;
 }
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 :root {
     --black: #181818;
     --white: #f5f5f5;
+    --yellow: #ffd600;
+    --blue: #1e88e5;
     --hot-pink: #f21f7f;
     --sage: #737b6f;
     --lavender: #e9d9eb;
     --section-bg: #232323;
     --section-bg-alt: #282929;
-    --accent-yellow: #ffd600;
-    --accent-blue: #1e88e5;
 }
 
 body {
     margin: 0;
-    font-family: 'Dream Avenue', Arial, sans-serif;
+    font-family: 'Permanent Marker', 'Dream Avenue', Arial, sans-serif;
     background: var(--black);
     color: var(--white);
     line-height: 1.7;
@@ -33,7 +34,7 @@ header {
     background: var(--section-bg);
     color: var(--white);
     box-shadow: 0 2px 8px rgba(24,24,24,0.18);
-    border-bottom: 3px solid var(--accent-yellow);
+    border-bottom: 3px solid var(--yellow);
 }
 nav {
     display: flex;
@@ -44,14 +45,14 @@ nav {
     padding: 1rem 2rem;
 }
 .logo {
-    font-family: 'Dream Avenue', Arial, sans-serif;
-    font-size: 2.4rem;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.8rem;
     font-weight: 900;
-    letter-spacing: 2px;
-    color: var(--accent-yellow);
-    text-shadow: 2px 2px 0 var(--black), 0 2px 8px var(--accent-blue);
+    color: var(--yellow);
+    text-shadow: 2px 2px 0 var(--hot-pink), 0 2px 8px var(--blue);
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    filter: none;
 }
 .nav-links {
     list-style: none;
@@ -63,27 +64,29 @@ nav {
 .nav-links a {
     color: var(--white);
     text-decoration: none;
-    font-family: 'Dream Avenue', Arial, sans-serif;
+    font-family: 'Permanent Marker', cursive;
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     letter-spacing: 2px;
     transition: color 0.2s;
     position: relative;
     text-transform: uppercase;
+    filter: none;
 }
 .nav-links a::after {
     content: '';
     display: block;
     width: 0;
-    height: 2px;
-    background: var(--accent-blue);
+    height: 3px;
+    background: var(--hot-pink);
     transition: width 0.3s;
     position: absolute;
     left: 0;
     bottom: -4px;
+    border-radius: 2px;
 }
 .nav-links a:hover {
-    color: var(--accent-yellow);
+    color: var(--yellow);
 }
 .nav-links a:hover::after {
     width: 100%;
@@ -101,36 +104,39 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 4px solid var(--accent-blue);
+    border-bottom: 4px solid var(--blue);
 }
 .hero-bg svg {
     filter: brightness(0.4) contrast(1.2) saturate(1.2) grayscale(0.2);
 }
 .hero h1 {
-    font-family: 'Dream Avenue', Arial, sans-serif;
-    font-size: 3.2rem;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3.5rem;
     margin-bottom: 1.2rem;
     letter-spacing: 3px;
-    color: var(--accent-yellow);
-    text-shadow: 2px 2px 0 var(--black), 0 2px 12px var(--accent-blue);
+    color: var(--yellow);
+    text-shadow: 2px 2px 0 var(--hot-pink), 0 2px 12px var(--blue);
     text-transform: uppercase;
+    filter: none;
 }
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     margin-bottom: 2.5rem;
     color: var(--white);
-    opacity: 0.92;
+    opacity: 0.95;
+    font-family: 'Dream Avenue', Arial, sans-serif;
     font-weight: 500;
     letter-spacing: 1px;
+    filter: none;
 }
 .cta-btn {
-    background: var(--accent-blue);
+    background: var(--hot-pink);
     color: var(--white);
     padding: 1rem 2.5rem;
     border: none;
     border-radius: 30px;
-    font-size: 1.1rem;
-    font-family: 'Dream Avenue', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-family: 'Permanent Marker', cursive;
     font-weight: 900;
     cursor: pointer;
     text-decoration: none;
@@ -138,10 +144,13 @@ nav {
     transition: background 0.2s, color 0.2s, transform 0.2s;
     letter-spacing: 2px;
     text-transform: uppercase;
+    filter: none;
+    outline: 2px solid var(--yellow);
+    outline-offset: 2px;
 }
 .cta-btn:hover {
-    background: var(--accent-yellow);
-    color: var(--black);
+    background: var(--yellow);
+    color: var(--hot-pink);
     transform: translateY(-2px) scale(1.04);
 }
 .info-section {
@@ -152,17 +161,19 @@ nav {
     box-shadow: 0 2px 16px rgba(30,136,229,0.10);
     padding: 2.5rem 2rem;
     color: var(--white);
-    border-left: 8px solid var(--accent-blue);
-    border-right: 8px solid var(--accent-yellow);
+    border-left: 8px solid var(--hot-pink);
+    border-right: 8px solid var(--yellow);
+    position: relative;
 }
 .info-section h2 {
-    color: var(--accent-yellow);
-    font-family: 'Dream Avenue', Arial, sans-serif;
+    color: var(--yellow);
+    font-family: 'Permanent Marker', cursive;
     margin-top: 0;
-    font-size: 2rem;
+    font-size: 2.2rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    text-shadow: 1px 1px 0 var(--black), 0 2px 8px var(--accent-blue);
+    text-shadow: 1px 1px 0 var(--hot-pink), 0 2px 8px var(--blue);
+    filter: none;
 }
 .info-section ul {
     padding-left: 1.2rem;
@@ -171,16 +182,29 @@ nav {
     margin-bottom: 0.7rem;
     font-size: 1.1rem;
     color: var(--white);
-    border-left: 3px solid var(--accent-blue);
+    border-left: 3px solid var(--blue);
     padding-left: 0.7rem;
     font-weight: 600;
     letter-spacing: 1px;
+    font-family: 'Dream Avenue', Arial, sans-serif;
+    filter: none;
 }
 .info-section img {
     filter: grayscale(0.4) brightness(0.7) contrast(1.2);
-    border: 2px solid var(--accent-blue);
+    border: 2px solid var(--hot-pink);
     background: var(--section-bg-alt);
     box-shadow: 0 4px 24px #18181844;
+}
+.info-section::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 80px;
+    height: 40px;
+    background: url('https://svgshare.com/i/15kA.svg') no-repeat center/contain;
+    opacity: 0.25;
+    pointer-events: none;
 }
 footer {
     text-align: center;
@@ -190,9 +214,10 @@ footer {
     font-size: 1rem;
     letter-spacing: 1px;
     margin-top: 2rem;
-    border-top: 2px solid var(--accent-yellow);
+    border-top: 2px solid var(--yellow);
     text-transform: uppercase;
     font-weight: 700;
+    filter: none;
 }
 @media (max-width: 800px) {
     nav {
@@ -206,6 +231,6 @@ footer {
         padding: 1.2rem;
     }
     .logo {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
     }
 }

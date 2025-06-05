@@ -14,33 +14,16 @@
     -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap" rel="stylesheet">
     <style>
-      /* Animated record overlay for hero */
-      .record-overlay {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 600px;
-        height: 600px;
-        max-width: 90vw;
-        max-height: 60vw;
-        transform: translate(-50%, -50%);
-        z-index: 0;
-        opacity: 0.13;
-        pointer-events: none;
-        animation: spin 12s linear infinite;
-      }
-      @keyframes spin {
-        0% { transform: translate(-50%, -50%) rotate(0deg); }
-        100% { transform: translate(-50%, -50%) rotate(360deg); }
-      }
-      /* Remove borders and box-shadows from sections */
-      .hero, .info-section {
+      /* Remove animated record overlay and all borders/radius from hero and sections */
+      .hero, .info-section, .inventory-section, .music-section {
         border: none !important;
         box-shadow: none !important;
-        border-radius: 0 0 60px 10px/0 0 30px 60px;
-        position: relative;
+        border-radius: 0 !important;
         background: #111;
+        position: relative;
       }
+      /* Remove overlay SVG from hero */
+      .record-overlay { display: none !important; }
       /* Font style: white, crisp black shadow, light dark pink outline */
       .logo, .hero h1, .info-section h2, .cta-btn, .nav-links a {
         font-family: 'Inter', Arial, sans-serif !important;
@@ -49,10 +32,9 @@
           0 2px 8px #000,
           2px 2px 0 #000,
           -2px -2px 0 #000,
-          0 0 0 #f21f7f,
-          0 0 2px #f21f7f;
-        -webkit-text-stroke: 1px #e94a8b44;
-        text-stroke: 1px #e94a8b44;
+          0 0 8px #f21f7f,
+          0 0 4px #f21f7f;
+        -webkit-text-stroke: 2px #f21f7f;
         letter-spacing: 2px;
       }
       .cta-btn {

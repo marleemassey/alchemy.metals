@@ -87,7 +87,9 @@
         // Prevent form submission (demo only)
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Payment processing is not implemented in this demo.');
+            // Show a success message instead of alert
+            const form = this;
+            form.innerHTML = '<div class="text-center text-green-500 text-xl py-8">Thank you for your order!<br>Your payment will be processed by Square.<br><span class="text-gray-400 text-base">(This is a demo placeholder.)</span></div>';
         });
         // Back to Cart button
         document.querySelector('a[href="cart.html"]').addEventListener('click', function(e) {

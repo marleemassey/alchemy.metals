@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | ROGUE Street Style Jewelry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Bebas+Neue&display=swap');
+        body { font-family: 'Rajdhani', sans-serif; background: #0f0f0f; color: #f5f5f5; }
+        .bebas { font-family: 'Bebas Neue', sans-serif; }
+        .glitch { position: relative; }
+        .glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .glitch::before { left: 2px; text-shadow: -1px 0 #ff00ff; animation: glitch-anim-1 2s infinite linear alternate-reverse; }
+        .glitch::after { left: -2px; text-shadow: 1px 0 #00ffff; animation: glitch-anim-2 3s infinite linear alternate-reverse; }
+        @keyframes glitch-anim-1 { 0% { clip-path: inset(80% 0 0 0); } 20% { clip-path: inset(20% 0 60% 0); } 40% { clip-path: inset(40% 0 40% 0); } 60% { clip-path: inset(60% 0 20% 0); } 80% { clip-path: inset(0 0 80% 0); } 100% { clip-path: inset(30% 0 50% 0); } }
+        @keyframes glitch-anim-2 { 0% { clip-path: inset(20% 0 60% 0); } 20% { clip-path: inset(60% 0 20% 0); } 40% { clip-path: inset(0 0 80% 0); } 60% { clip-path: inset(80% 0 0 0); } 80% { clip-path: inset(40% 0 40% 0); } 100% { clip-path: inset(50% 0 30% 0); } }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="fixed top-0 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md z-50 px-4 py-3 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center">
+            <a href="index.html" class="bebas text-3xl tracking-wider">
+                <span class="glitch text-white" data-text="ROGUE">ROGUE</span>
+            </a>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="index.html#" class="nav-link text-white hover:text-gray-300 transition-colors">HOME</a>
+            <a href="index.html#shop" class="nav-link text-white hover:text-gray-300 transition-colors">SHOP</a>
+            <a href="index.html#collections" class="nav-link text-white hover:text-gray-300 transition-colors">COLLECTIONS</a>
+            <a href="index.html#about" class="nav-link text-white hover:text-gray-300 transition-colors">ABOUT</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <a href="index.html" class="text-white hover:text-gray-300 transition-colors">
+                <i class="fas fa-home text-xl"></i>
+            </a>
+        </div>
+    </header>
+    <main class="pt-28 pb-16 min-h-[60vh] bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-4">
+            <h1 class="bebas text-4xl md:text-5xl text-white mb-8 tracking-wider text-center">YOUR <span class="text-red-600">CART</span></h1>
+            <div class="bg-gray-900 rounded-sm shadow-lg p-6 max-w-3xl mx-auto">
+                <div class="flex flex-col gap-6" id="cart-items">
+                    <!-- Example cart item -->
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-20 h-20 bg-gray-800 flex items-center justify-center rounded-sm">
+                                <svg class="w-12 h-12" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#1a1a1a"/>
+                                    <path d="M100,50 L120,80 L150,90 L120,120 L130,150 L100,135 L70,150 L80,120 L50,90 L80,80 Z" fill="#777" stroke="#999" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-white text-lg font-medium">Spike Star Pendant</h2>
+                                <p class="text-gray-400 text-sm">Qty: <span>1</span></p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-white text-lg font-bold">$49.99</span>
+                            <button class="text-red-600 hover:text-red-400 text-xs mt-2">Remove</button>
+                        </div>
+                    </div>
+                    <!-- Example cart item end -->
+                </div>
+                <div class="flex justify-between items-center mt-8">
+                    <span class="text-gray-300 text-lg">Subtotal</span>
+                    <span class="text-white text-2xl font-bold">$49.99</span>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 mt-8">
+                    <a href="index.html#shop" class="btn-hover border border-white text-white px-6 py-3 rounded-sm bebas text-lg tracking-wider hover:bg-white hover:bg-opacity-10 transition-colors text-center">Continue Shopping</a>
+                    <button class="btn-hover bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-sm bebas text-lg tracking-wider transition-colors">Checkout</button>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="index.html#" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-arrow-left mr-2"></i>Back to Home</a>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-black py-8 mt-16">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            © 2023 ROGUE Jewelry. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

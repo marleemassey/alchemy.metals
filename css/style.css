@@ -1,4 +1,4 @@
-/* Cohesive, dark, and easy-on-the-eyes layout with accent colors */
+/* Street style, bold, urban, and gender-neutral look */
 @font-face {
     font-family: 'Dream Avenue';
     src: url('../fonts/DreamAvenue.woff2') format('woff2'),
@@ -9,13 +9,15 @@
 }
 
 :root {
-    --black: #282929;
+    --black: #181818;
+    --white: #f5f5f5;
     --hot-pink: #f21f7f;
-    --white: #ffffff;
     --sage: #737b6f;
     --lavender: #e9d9eb;
     --section-bg: #232323;
-    --section-bg-alt: #323232;
+    --section-bg-alt: #282929;
+    --accent-yellow: #ffd600;
+    --accent-blue: #1e88e5;
 }
 
 body {
@@ -25,11 +27,13 @@ body {
     color: var(--white);
     line-height: 1.7;
     min-height: 100vh;
+    letter-spacing: 0.5px;
 }
 header {
     background: var(--section-bg);
     color: var(--white);
-    box-shadow: 0 2px 8px rgba(40,41,41,0.12);
+    box-shadow: 0 2px 8px rgba(24,24,24,0.18);
+    border-bottom: 3px solid var(--accent-yellow);
 }
 nav {
     display: flex;
@@ -41,16 +45,18 @@ nav {
 }
 .logo {
     font-family: 'Dream Avenue', Arial, sans-serif;
-    font-size: 2.2rem;
-    font-weight: 700;
+    font-size: 2.4rem;
+    font-weight: 900;
     letter-spacing: 2px;
-    color: var(--hot-pink);
-    text-shadow: 1px 2px 8px rgba(233,217,235,0.10);
+    color: var(--accent-yellow);
+    text-shadow: 2px 2px 0 var(--black), 0 2px 8px var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 2.2rem;
     margin: 0;
     padding: 0;
 }
@@ -58,25 +64,26 @@ nav {
     color: var(--white);
     text-decoration: none;
     font-family: 'Dream Avenue', Arial, sans-serif;
-    font-weight: 500;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 2px;
     transition: color 0.2s;
     position: relative;
+    text-transform: uppercase;
 }
 .nav-links a::after {
     content: '';
     display: block;
     width: 0;
     height: 2px;
-    background: var(--hot-pink);
+    background: var(--accent-blue);
     transition: width 0.3s;
     position: absolute;
     left: 0;
     bottom: -4px;
 }
 .nav-links a:hover {
-    color: var(--hot-pink);
+    color: var(--accent-yellow);
 }
 .nav-links a:hover::after {
     width: 100%;
@@ -88,66 +95,74 @@ nav {
     padding: 5rem 2rem 4rem 2rem;
     border-bottom-left-radius: 60px 30px;
     border-bottom-right-radius: 60px 30px;
-    box-shadow: 0 8px 32px rgba(40,41,41,0.10);
+    box-shadow: 0 8px 32px rgba(24,24,24,0.18);
     position: relative;
     min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 4px solid var(--accent-blue);
 }
 .hero-bg svg {
-    filter: brightness(0.5) contrast(1.1) saturate(1.2);
+    filter: brightness(0.4) contrast(1.2) saturate(1.2) grayscale(0.2);
 }
 .hero h1 {
     font-family: 'Dream Avenue', Arial, sans-serif;
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin-bottom: 1.2rem;
-    letter-spacing: 2px;
-    color: var(--hot-pink);
-    text-shadow: 1px 2px 12px rgba(115,123,111,0.10);
+    letter-spacing: 3px;
+    color: var(--accent-yellow);
+    text-shadow: 2px 2px 0 var(--black), 0 2px 12px var(--accent-blue);
+    text-transform: uppercase;
 }
 .hero p {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     margin-bottom: 2.5rem;
-    color: var(--lavender);
+    color: var(--white);
     opacity: 0.92;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 .cta-btn {
-    background: var(--hot-pink);
+    background: var(--accent-blue);
     color: var(--white);
     padding: 1rem 2.5rem;
     border: none;
     border-radius: 30px;
     font-size: 1.1rem;
     font-family: 'Dream Avenue', Arial, sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     cursor: pointer;
     text-decoration: none;
-    box-shadow: 0 2px 12px rgba(233,217,235,0.10);
+    box-shadow: 0 2px 12px rgba(30,136,229,0.18);
     transition: background 0.2s, color 0.2s, transform 0.2s;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 .cta-btn:hover {
-    background: var(--sage);
-    color: var(--hot-pink);
+    background: var(--accent-yellow);
+    color: var(--black);
     transform: translateY(-2px) scale(1.04);
 }
 .info-section {
-    max-width: 900px;
+    max-width: 950px;
     margin: 2.5rem auto;
     background: var(--section-bg);
     border-radius: 18px;
-    box-shadow: 0 2px 16px rgba(242,31,127,0.06);
+    box-shadow: 0 2px 16px rgba(30,136,229,0.10);
     padding: 2.5rem 2rem;
     color: var(--white);
-    border-left: 8px solid var(--hot-pink);
+    border-left: 8px solid var(--accent-blue);
+    border-right: 8px solid var(--accent-yellow);
 }
 .info-section h2 {
-    color: var(--hot-pink);
+    color: var(--accent-yellow);
     font-family: 'Dream Avenue', Arial, sans-serif;
     margin-top: 0;
     font-size: 2rem;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 var(--black), 0 2px 8px var(--accent-blue);
 }
 .info-section ul {
     padding-left: 1.2rem;
@@ -155,24 +170,29 @@ nav {
 .info-section li {
     margin-bottom: 0.7rem;
     font-size: 1.1rem;
-    color: var(--lavender);
-    border-left: 3px solid var(--sage);
+    color: var(--white);
+    border-left: 3px solid var(--accent-blue);
     padding-left: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 .info-section img {
-    filter: grayscale(0.2) brightness(0.8) contrast(1.1);
-    border: 2px solid var(--sage);
+    filter: grayscale(0.4) brightness(0.7) contrast(1.2);
+    border: 2px solid var(--accent-blue);
     background: var(--section-bg-alt);
+    box-shadow: 0 4px 24px #18181844;
 }
 footer {
     text-align: center;
     padding: 1.5rem 0 1rem 0;
     background: var(--section-bg-alt);
-    color: var(--lavender);
+    color: var(--sage);
     font-size: 1rem;
     letter-spacing: 1px;
     margin-top: 2rem;
-    border-top: 2px solid var(--hot-pink);
+    border-top: 2px solid var(--accent-yellow);
+    text-transform: uppercase;
+    font-weight: 700;
 }
 @media (max-width: 800px) {
     nav {

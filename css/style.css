@@ -1,4 +1,11 @@
-/* Graffiti, bratty, bold, and crisp street style */
+/*
+  Graffiti, bratty, bold, and crisp street style
+  - Uses Permanent Marker for graffiti effect
+  - Hot pink, yellow, and blue as accents
+  - Graffiti tag SVG as watermark
+  - Responsive for mobile, desktop, and browser
+  - Comments added for clarity
+*/
 @font-face {
     font-family: 'Dream Avenue';
     src: url('../fonts/DreamAvenue.woff2') format('woff2'),
@@ -30,6 +37,8 @@ body {
     min-height: 100vh;
     letter-spacing: 0.5px;
 }
+
+/* Header and Navigation */
 header {
     background: var(--section-bg);
     color: var(--white);
@@ -91,6 +100,8 @@ nav {
 .nav-links a:hover::after {
     width: 100%;
 }
+
+/* Hero Section */
 .hero {
     background: var(--section-bg-alt);
     color: var(--white);
@@ -153,6 +164,8 @@ nav {
     color: var(--hot-pink);
     transform: translateY(-2px) scale(1.04);
 }
+
+/* Info Sections */
 .info-section {
     max-width: 950px;
     margin: 2.5rem auto;
@@ -164,6 +177,11 @@ nav {
     border-left: 8px solid var(--hot-pink);
     border-right: 8px solid var(--yellow);
     position: relative;
+    /* Responsive flex for about/features */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
 }
 .info-section h2 {
     color: var(--yellow);
@@ -194,8 +212,16 @@ nav {
     border: 2px solid var(--hot-pink);
     background: var(--section-bg-alt);
     box-shadow: 0 4px 24px #18181844;
+    width: 320px;
+    border-radius: 18px;
+    flex-shrink: 0;
+}
+.info-section > div {
+    flex: 1 1 220px;
+    min-width: 220px;
 }
 .info-section::after {
+    /* Graffiti tag SVG watermark */
     content: '';
     position: absolute;
     left: 20px;
@@ -205,6 +231,45 @@ nav {
     background: url('https://svgshare.com/i/15kA.svg') no-repeat center/contain;
     opacity: 0.25;
     pointer-events: none;
+}
+
+/* Contact section override for center alignment */
+#contact.info-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+    nav {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    .info-section {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.2rem;
+    }
+    .info-section img {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 600px) {
+    .logo {
+        font-size: 1.6rem;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero {
+        padding: 2.5rem 0.5rem 2.5rem 0.5rem;
+    }
+    .info-section {
+        padding: 0.7rem;
+    }
 }
 footer {
     text-align: center;
@@ -218,19 +283,4 @@ footer {
     text-transform: uppercase;
     font-weight: 700;
     filter: none;
-}
-@media (max-width: 800px) {
-    nav {
-        flex-direction: column;
-        gap: 1.2rem;
-    }
-    .hero {
-        padding: 2.5rem 1rem 2.5rem 1rem;
-    }
-    .info-section {
-        padding: 1.2rem;
-    }
-    .logo {
-        font-size: 1.6rem;
-    }
 }

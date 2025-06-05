@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Alchemy Metals</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="fonts/DreamAvenue.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+      /* SVG background for hero section */
+      .hero-bg {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
 </head>
 <body>
     <header>
@@ -18,26 +35,60 @@
         </nav>
     </header>
     <main>
-        <section class="hero">
-            <h1>Welcome to Alchemy Metals</h1>
-            <p>Your journey into the world of metals starts here. Discover, learn, and transform your knowledge!</p>
-            <a href="#about" class="cta-btn">Get Started</a>
+        <section class="hero" style="position:relative; overflow:hidden; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+            <div class="hero-bg">
+              <svg width="100%" height="100%" viewBox="0 0 1440 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#f21f7f"/>
+                    <stop offset="100%" stop-color="#e9d9eb"/>
+                  </linearGradient>
+                  <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#737b6f"/>
+                    <stop offset="100%" stop-color="#282929"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,100 Q360,200 720,100 T1440,100 V500 H0 Z" fill="url(#bg1)" opacity="0.7"/>
+                <path d="M0,200 Q360,350 720,200 T1440,200 V500 H0 Z" fill="url(#bg2)" opacity="0.5"/>
+              </svg>
+            </div>
+            <div class="hero-content">
+              <h1>Welcome to Alchemy Metals</h1>
+              <p>Your journey into the world of metals starts here. Discover, learn, and transform your knowledge!</p>
+              <a href="#about" class="cta-btn">Get Started</a>
+            </div>
         </section>
-        <section id="about" class="info-section">
-            <h2>About Us</h2>
-            <p>Alchemy Metals is a beginner-friendly platform to explore the fascinating world of metals, their properties, and uses.</p>
+        <section id="about" class="info-section" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Metalwork" style="width: 320px; border-radius: 18px; box-shadow: 0 4px 24px #28292922; flex-shrink:0;">
+            <div>
+              <h2>About Us</h2>
+              <p>Alchemy Metals is a beginner-friendly platform to explore the fascinating world of metals, their properties, and uses.</p>
+            </div>
         </section>
-        <section id="features" class="info-section">
-            <h2>Features</h2>
-            <ul>
-                <li>Easy-to-understand guides</li>
-                <li>Interactive learning modules</li>
-                <li>Community support</li>
-            </ul>
+        <section id="features" class="info-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+            <div style="flex:1; min-width:220px;">
+              <h2>Features</h2>
+              <ul>
+                  <li>Easy-to-understand guides</li>
+                  <li>Interactive learning modules</li>
+                  <li>Community support</li>
+              </ul>
+            </div>
+            <div style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center;">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="60" r="54" fill="#f21f7f" fill-opacity="0.15" stroke="#f21f7f" stroke-width="4"/>
+                <rect x="35" y="35" width="50" height="50" rx="12" fill="#e9d9eb" stroke="#737b6f" stroke-width="3"/>
+                <circle cx="60" cy="60" r="16" fill="#737b6f" stroke="#282929" stroke-width="2"/>
+              </svg>
+            </div>
         </section>
-        <section id="contact" class="info-section">
+        <section id="contact" class="info-section" style="text-align:center;">
             <h2>Contact</h2>
             <p>Have questions? <a href="mailto:info@alchemymetals.com">Email us</a> and we’ll get back to you soon!</p>
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top:1rem;">
+              <rect x="10" y="20" width="60" height="40" rx="8" fill="#e9d9eb" stroke="#f21f7f" stroke-width="3"/>
+              <polyline points="10,20 40,50 70,20" fill="none" stroke="#737b6f" stroke-width="3"/>
+            </svg>
         </section>
     </main>
     <footer>

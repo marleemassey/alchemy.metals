@@ -1,4 +1,4 @@
-/* Modern, edgy, and readable landing page styles with custom palette and Dream Avenue font */
+/* Cohesive, dark, and easy-on-the-eyes layout with accent colors */
 @font-face {
     font-family: 'Dream Avenue';
     src: url('../fonts/DreamAvenue.woff2') format('woff2'),
@@ -14,6 +14,8 @@
     --white: #ffffff;
     --sage: #737b6f;
     --lavender: #e9d9eb;
+    --section-bg: #232323;
+    --section-bg-alt: #323232;
 }
 
 body {
@@ -22,11 +24,12 @@ body {
     background: var(--black);
     color: var(--white);
     line-height: 1.7;
+    min-height: 100vh;
 }
 header {
-    background: var(--sage);
+    background: var(--section-bg);
     color: var(--white);
-    box-shadow: 0 2px 8px rgba(40,41,41,0.08);
+    box-shadow: 0 2px 8px rgba(40,41,41,0.12);
 }
 nav {
     display: flex;
@@ -42,7 +45,7 @@ nav {
     font-weight: 700;
     letter-spacing: 2px;
     color: var(--hot-pink);
-    text-shadow: 1px 2px 8px rgba(233,217,235,0.12);
+    text-shadow: 1px 2px 8px rgba(233,217,235,0.10);
 }
 .nav-links {
     list-style: none;
@@ -73,19 +76,27 @@ nav {
     bottom: -4px;
 }
 .nav-links a:hover {
-    color: var(--lavender);
+    color: var(--hot-pink);
 }
 .nav-links a:hover::after {
     width: 100%;
 }
 .hero {
-    background: linear-gradient(120deg, var(--hot-pink) 0%, var(--lavender) 100%);
-    color: var(--black);
+    background: var(--section-bg-alt);
+    color: var(--white);
     text-align: center;
     padding: 5rem 2rem 4rem 2rem;
     border-bottom-left-radius: 60px 30px;
     border-bottom-right-radius: 60px 30px;
-    box-shadow: 0 8px 32px rgba(233,217,235,0.08);
+    box-shadow: 0 8px 32px rgba(40,41,41,0.10);
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-bg svg {
+    filter: brightness(0.5) contrast(1.1) saturate(1.2);
 }
 .hero h1 {
     font-family: 'Dream Avenue', Arial, sans-serif;
@@ -93,12 +104,12 @@ nav {
     margin-bottom: 1.2rem;
     letter-spacing: 2px;
     color: var(--hot-pink);
-    text-shadow: 1px 2px 12px rgba(115,123,111,0.15);
+    text-shadow: 1px 2px 12px rgba(115,123,111,0.10);
 }
 .hero p {
     font-size: 1.3rem;
     margin-bottom: 2.5rem;
-    color: var(--black);
+    color: var(--lavender);
     opacity: 0.92;
 }
 .cta-btn {
@@ -124,11 +135,11 @@ nav {
 .info-section {
     max-width: 900px;
     margin: 2.5rem auto;
-    background: var(--lavender);
+    background: var(--section-bg);
     border-radius: 18px;
-    box-shadow: 0 2px 16px rgba(242,31,127,0.08);
+    box-shadow: 0 2px 16px rgba(242,31,127,0.06);
     padding: 2.5rem 2rem;
-    color: var(--black);
+    color: var(--white);
     border-left: 8px solid var(--hot-pink);
 }
 .info-section h2 {
@@ -144,15 +155,20 @@ nav {
 .info-section li {
     margin-bottom: 0.7rem;
     font-size: 1.1rem;
-    color: var(--black);
+    color: var(--lavender);
     border-left: 3px solid var(--sage);
     padding-left: 0.7rem;
+}
+.info-section img {
+    filter: grayscale(0.2) brightness(0.8) contrast(1.1);
+    border: 2px solid var(--sage);
+    background: var(--section-bg-alt);
 }
 footer {
     text-align: center;
     padding: 1.5rem 0 1rem 0;
-    background: var(--black);
-    color: var(--white);
+    background: var(--section-bg-alt);
+    color: var(--lavender);
     font-size: 1rem;
     letter-spacing: 1px;
     margin-top: 2rem;
